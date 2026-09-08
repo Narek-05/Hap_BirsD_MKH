@@ -247,6 +247,3 @@ def buttons(message):
     else:
         bot.send_message(message.chat.id, text="Я могу отвечать только на нажатие кнопок 😊")
 
-
-bot.polling(none_stop=True, interval=0)    # бесконечное выполнение кода
-
