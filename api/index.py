@@ -20,25 +20,25 @@ async def root():
     }
 
 
-@app.post("/api/webhook")
+@app.post("/webhook")
 async def webhook(request: Request):
     try:
         data = await request.json()
 
-        logger.info("Получен Telegram update")
+        logger.info("Получен Telegram update: %s", data)
 
         update = types.Update.de_json(data)
+
+        logger.info("Начинаем обработку update")
 
         bot.process_new_updates([update])
 
         logger.info("Update обработан")
 
-        return {
-            "ok": True
-        }
+        return {"ok": True}
 
-    except Exception:
-        logger.exception("Ошибка обработки webhook")
+    except Exception as e:
+        logger.exception("Ошибка обработки webhook: %s", e)
 
         raise HTTPException(
             status_code=500,
