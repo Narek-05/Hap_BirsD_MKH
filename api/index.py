@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/api")
 async def root():
     return {
         "status": "ok",
@@ -20,7 +20,7 @@ async def root():
     }
 
 
-@app.post("/webhook")
+@app.post("/api/webhook")
 async def webhook(request: Request):
     try:
         data = await request.json()
