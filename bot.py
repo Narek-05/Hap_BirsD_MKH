@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 token =  os.getenv('BOT_TOKEN')  # передаём значение переменной с кодом экземпляру бота
 bot = telebot.TeleBot(token)
+
 # Получение сегодняшней даты
 today = datetime.now()
 current_month = today.month
