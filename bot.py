@@ -7,6 +7,13 @@ from datetime import datetime, timedelta
 token =  os.getenv('BOT_TOKEN')  # передаём значение переменной с кодом экземпляру бота
 bot = telebot.TeleBot(token)
 
+# ВРЕМЕННАЯ ПРОВЕРКА (удалите это после настройки!)
+if not TOKEN:
+    print("❌ ОШИБКА: Токен не найден! Проверьте переменные окружения на Bothost.")
+else:
+    # Покажем только первые 10 символов токена для безопасности
+    print(f"✅ Токен загружен успешно: {TOKEN[:10]}...") 
+
 # Получение сегодняшней даты
 today = datetime.now()
 current_month = today.month
